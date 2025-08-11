@@ -5,6 +5,7 @@
 
 #include <ex01/Span.hpp>
 
+// It may be better to add more test cases.
 int main() {
     try {
         Span span(10);
