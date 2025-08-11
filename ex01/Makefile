@@ -2,6 +2,8 @@ NAME = span
 
 # sources
 SRCS = main.cpp \
+	Span.cpp \
+	SpanException.cpp \
 	../toolbox/color.cpp \
 	../toolbox/StepMark.cpp
 
