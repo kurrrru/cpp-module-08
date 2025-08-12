@@ -11,7 +11,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 # compiler
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I..
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -I..
 
 # rules
 all: $(NAME)

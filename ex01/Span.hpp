@@ -7,7 +7,7 @@
 class Span {
  public:
     Span();
-    Span(unsigned int n);
+    explicit Span(unsigned int n);
     Span(const Span &other);
     Span &operator=(const Span &other);
     ~Span();
@@ -19,7 +19,7 @@ class Span {
 
     class SpanException : public std::exception {
      public:
-        SpanException(const std::string &message);
+        explicit SpanException(const std::string &message);
         const char *what() const throw();
         virtual ~SpanException() throw();
      private:
