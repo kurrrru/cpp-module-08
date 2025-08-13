@@ -7,17 +7,26 @@ int main() {
     for (int i = 0; i < 20; ++i) {
         stack.push(i * i);
     }
-    for (MutantStack<int>::iterator it = stack.begin(); it != stack.end(); ++it) {
+    for (MutantStack<int>::iterator it = stack.begin();
+        it != stack.end(); ++it) {
         std::cout << *it << " \n"[std::distance(it, stack.end()) == 1];
+        (*it)++;
     }
-    for (MutantStack<int>::reverse_iterator rit = stack.rbegin(); rit != stack.rend(); ++rit) {
+    for (MutantStack<int>::reverse_iterator rit = stack.rbegin();
+        rit != stack.rend(); ++rit) {
         std::cout << *rit << " \n"[std::distance(rit, stack.rend()) == 1];
+        (*rit)++;
     }
     for (int i = 0; i < 10; ++i) {
         stack.pop();
     }
-    for (MutantStack<int>::iterator it = stack.begin(); it != stack.end(); ++it) {
-        std::cout << *it << " \n"[std::distance(it, stack.end()) == 1];
+    for (MutantStack<int>::const_iterator it = stack.cbegin();
+        it != stack.cend(); ++it) {
+        std::cout << *it << " \n"[std::distance(it, stack.cend()) == 1];
+    }
+    for (MutantStack<int>::const_reverse_iterator rit = stack.crbegin();
+        rit != stack.crend(); ++rit) {
+        std::cout << *rit << " \n"[std::distance(rit, stack.crend()) == 1];
     }
 
     return 0;
