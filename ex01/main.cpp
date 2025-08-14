@@ -94,6 +94,30 @@ int main() {
         std::cerr << toolbox::color::red << errMsg.str() << std::endl;
     }
 
+    // Test using range-based addNumbers
+    try {
+        Span rangeSpan(15);
+        std::vector<int> rangeValues(10);
+        for (int i = 0; i < 10; ++i) {
+            rangeValues[i] = i * 10;
+        }
+        rangeSpan.addNumbers(rangeValues.begin(), rangeValues.end());
+        std::cout << "Shortest span: " 
+                << rangeSpan.shortestSpan() << std::endl;
+        std::cout << "Longest span: "
+                << rangeSpan.longestSpan() << std::endl;
+        try {
+            rangeSpan.addNumbers(rangeValues.begin(), rangeValues.end());
+        } catch (const Span::SpanException &e) {
+            std::cerr << e.what() << std::endl;
+        }
+    } catch (const Span::SpanException &e) {
+        std::stringstream errMsg;
+        errMsg << "unexpected Exception: " << e.what();
+        toolbox::logger::StepMark::error(errMsg.str());
+        std::cerr << toolbox::color::red << errMsg.str() << std::endl;
+    }
+
     // Test with a test case that should throw exceptions
     try {
         Span emptySpan(5);

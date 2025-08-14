@@ -17,6 +17,13 @@ class Span {
     int shortestSpan() const;
     int longestSpan() const;
 
+    template <typename InputIt>
+    void addNumbers(InputIt first, InputIt last) {
+        for (InputIt it = first; it != last; ++it) {
+            addNumber(*it);
+        }
+    }
+
     class SpanException : public std::exception {
      public:
         explicit SpanException(const std::string &message);
