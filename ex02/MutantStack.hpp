@@ -5,7 +5,7 @@
 
 template<class T, class Container = std::deque<T> >
 class MutantStack: public std::stack<T, Container> {
-public:
+ public:
     typedef typename Container::iterator iterator;
     typedef typename Container::const_iterator const_iterator;
     typedef typename Container::reverse_iterator reverse_iterator;
