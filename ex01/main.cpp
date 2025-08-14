@@ -59,14 +59,22 @@ int main() {
             emptySpan.addNumber(value);
             values[i] = value;
         }
-        for (int i = 0; i < 100000; ++i) {
+        std::cout << "Shortest span: "
+            << emptySpan.shortestSpan() << std::endl;
+        std::cout << "Longest span: "
+            << emptySpan.longestSpan() << std::endl;
+        for (int i = 0; i < 10000000; ++i) {
             emptySpan.shortestSpan();
             emptySpan.longestSpan();
         }
-        for (int i = 0; i < 50000; ++i) {
+        for (int i = 0; i < 80000; ++i) {
             emptySpan.deleteNumber(values[i]);
         }
-        for (int i = 0; i < 100000; ++i) {
+        std::cout << "Shortest span after deletions: "
+            << emptySpan.shortestSpan() << std::endl;
+        std::cout << "Longest span after deletions: "
+            << emptySpan.longestSpan() << std::endl;
+        for (int i = 0; i < 10000000; ++i) {
             emptySpan.shortestSpan();
             emptySpan.longestSpan();
         }
