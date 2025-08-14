@@ -3,10 +3,16 @@
 #include <cstdlib>
 #include <vector>
 #include <ctime>
+#include <sstream>
+#include <string>
 
 #include <ex01/Span.hpp>
+#include <toolbox/color.hpp>
+#include <toolbox/StepMark.hpp>
 
 int main() {
+    toolbox::logger::StepMark::setLevel(toolbox::logger::INFO);
+    toolbox::logger::StepMark::setLogFile("SpanTest.log");
     // This is a basic test for the Span class
     try {
         Span span(10);
@@ -46,7 +52,10 @@ int main() {
             std::cerr << e.what() << std::endl;
         }
     } catch (const Span::SpanException &e) {
-        std::cerr << "unexpected Exception: " << e.what() << std::endl;
+        std::stringstream errMsg;
+        errMsg << "unexpected Exception: " << e.what();
+        toolbox::logger::StepMark::error(errMsg.str());
+        std::cerr << toolbox::color::red << errMsg.str() << std::endl;
     }
 
     // Test with a large number of elements
@@ -79,7 +88,10 @@ int main() {
             emptySpan.longestSpan();
         }
     } catch (const Span::SpanException &e) {
-        std::cerr << "unexpected Exception: " << e.what() << std::endl;
+        std::stringstream errMsg;
+        errMsg << "unexpected Exception: " << e.what();
+        toolbox::logger::StepMark::error(errMsg.str());
+        std::cerr << toolbox::color::red << errMsg.str() << std::endl;
     }
 
     // Test with a test case that should throw exceptions
@@ -117,7 +129,10 @@ int main() {
             std::cerr << e.what() << std::endl;
         }
     } catch (const Span::SpanException &e) {
-        std::cerr << "unexpected Exception: " << e.what() << std::endl;
+        std::stringstream errMsg;
+        errMsg << "unexpected Exception: " << e.what();
+        toolbox::logger::StepMark::error(errMsg.str());
+        std::cerr << toolbox::color::red << errMsg.str() << std::endl;
     }
 
     return 0;
