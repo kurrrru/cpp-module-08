@@ -97,6 +97,8 @@ int main() {
     std::multiset<int>::const_iterator itMultiSet = easyfind(myMultiSet, 2);
     if (itMultiSet != myMultiSet.end()) {
         std::cout << "Found in multiset: " << *itMultiSet << std::endl;
+        std::cout << "distance from top of multiset: "
+                << std::distance(myMultiSet.begin(), itMultiSet) << std::endl;
     } else {
         std::cout << "Not found in multiset." << std::endl;
     }
