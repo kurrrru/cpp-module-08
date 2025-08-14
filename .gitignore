@@ -1,9 +1,0 @@
-.vscode
-*.o
-*.log
-*.txt
-
-# Executable files
-easyfind
-span
-mutated_abominination
